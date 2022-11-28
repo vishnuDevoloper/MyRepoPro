@@ -1,0 +1,33 @@
+/* .pages{
+    border: 2px solid black;
+} */
+
+.main{
+    display: grid;
+    grid-gap: auto;
+    grid-template-columns: auto auto;
+    width: 25%;
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 10px;
+}
+button{
+    padding: 15px;
+    border-radius: 20px;
+}
+button:hover{
+    color: white;
+    background-color: black;
+}
+.icons{
+    margin: 10px 10px;
+}
+.pages{
+    margin: 10px auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 10px;
+}
+.pages:hover{
+    background-color: lightskyblue;
+}

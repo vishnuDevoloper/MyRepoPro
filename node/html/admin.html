@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+   <style>
+        button{
+            background-color: black;
+            color: white;
+            font-size: 15px;
+            margin-right: 15px;
+            height: 30px;
+            border: 1px solid red;
+            border-radius: 10px;
+            transition: 0.5s;
+        }
+        .formDefault{
+            display: flex;
+            flex-wrap:wrap ;
+            border: 2px solid rgb(18, 18, 18);
+            width:300px;
+            text-align: left;
+           padding: 10px;
+           font-size: 20px;
+           height: 450px;
+           position: relative; 
+           /* top:-320px; */
+           left:450px;
+           color: black;
+           font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+           background-color: rgb(196, 195, 186);
+        }
+        .noModel{
+           visibility: hidden;
+        }
+        .displayModel{
+            display: content; 
+        }
+       
+        input{
+            width: 120px;
+        }
+        .savebtn{
+            background-color:aqua;
+            border-radius:10px;
+            border: 2px solid black;
+            color: rgb(40, 37, 37);
+            font-size: 20px;    
+        }
+        .cancelbtn{
+            background-color: rgb(0, 255, 38);
+            border-radius:10px;
+            border: 2px solid black;
+            color: rgb(40, 36, 36);
+            font-size: 20px;
+        }
+
+   </style>
+</head>
+<body>
+    <header class="py-3 ps-5 bg-dark text-center">
+        <h1 class="text-light h2">Vaccine Booking Slot</h1>
+        
+        <a href="./form.html" class="text-decoration-none fs-2 border border-primary p-1">user</a>
+
+    </header>
+   
+    
+    <table class=" table w-75 border border-2 border-dark my-5  mx-auto" >
+        <thead >
+            <tr>
+                <th>FirstName</th>
+                <th>LastName</th>
+                <th>Email</th>
+                <th>Date</th>
+                <th>Age</th>
+                <th>PhoneNo</th>
+                <th>Enter Aadhar_no</th>
+                <th>Permanent_Address</th>
+                <th>Edit</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody id="body">
+          
+        </tbody>
+    </table>
+    <form class="formDefault noModel model">
+        <div>FirstName:<input type="text" name="firstName"></div>
+        <div>LastName:<input type="text" name="lastName"></div>
+       <div>Email:<input type="eMail" name="eMail"></div>
+        <div>Date:<input type ="date" name="date">   </div>
+        <div>Age:<input type ="number" name="age"></div>
+        <div>PhoneNo<input type="text" name="phoneNo"></div>
+       <div>Enter Aadhar  <input type="text" name="aadhar" readonly></div>
+       <div>Address<input type ="text" name="pAddress"></div>
+    
+       <div><button class="savebtn" type="submit">SAVE</button>
+        <button class="cancelbtn" type="button">CANCEL</button></div>
+    </form>    
+  
+       
+         <script>
+            let model=document.querySelector('.model');
+
+           const deleteUser= async(id)=>{
+              let res = await fetch(`/user/${id}`,{method:"DELETE"}) 
+              let result = await res.json()
+              alert(result.msg)
+              tableBody(result.allData)
+           }
+
+            const tableBody=(data)=>{
+                let allRows=''
+                for(let i=0;i<data.length;i++){
+                    allRows += `<tr> 
+                    <td> ${data[i].firstName}</td>
+                    <td> ${data[i].lastName}</td>
+                    <td> ${data[i].eMail}</td>
+                    <td> ${data[i].date}</td>
+                    <td> ${data[i].age}</td>
+                    <td> ${data[i].phoneNo}</td>
+                    <td> ${data[i].aadhar}</td>
+                    <td> ${data[i].pAddress}</td>
+                    <td><button onclick="updateData(${data[i].id})">Edit</button></td>
+                    <td><button onclick="deleteUser(${data[i].id})">Delete</button></td>
+                    </tr>`
+                }
+                document.getElementById('body').innerHTML=allRows;
+            }
+
+            (async function(){
+                let output=await fetch('../db/data.json');
+                const finalResult = await output.json();
+               tableBody(finalResult)
+            })();
+
+
+
+            async function updateData(e){
+                console.log(e);
+               model.classList.remove('noModel');
+                let res= await fetch('../db/data.json').then((data)=> data.json()).
+                then(data => {
+                return  data.filter(val => val.id === e)
+                }).catch(err => console.log(err));
+                let divs=document.querySelector('.model');
+             //   console.log(divs);
+               divs.classList.add('displayModel');
+                displayForm(res);
+              }
+              function displayForm([...val]){
+    const {firstName,lastName,eMail,date,age,phoneNo,aadhar,pAddress}= val[0]
+    let input=document.querySelectorAll('input');
+
+   input[0].value=firstName;
+   input[1].value=lastName;
+
+   input[2].value=eMail; 
+   input[3].value=date; 
+   input[4].value=age; 
+   input[5].value=phoneNo;
+  input[6].value=aadhar;
+  input[7].value=pAddress;
+  
+}    
+
+              document.querySelector('.cancelbtn').addEventListener('click',()=>{
+                 model.classList.remove('displayModel');
+                model.classList.add('noModel');        
+                })
+         
+                document.querySelector('.formDefault').addEventListener('submit',(e)=>{
+                      e.preventDefault();
+                    console.log(e.target);
+                    const {target:{firstName,lastName,eMail,date,age,phoneNo,aadhar,pAddress}}=e;
+
+                    let user ={
+                      
+                        firstName:firstName.value,
+                        lastName:lastName.value,
+                           eMail:eMail.value,
+                           date:date.value,
+                           status:"pending",
+                            age:Number(age.value),
+                           phoneNo:Number(phoneNo.value),
+                         aadhar:Number(aadhar.value),
+                         pAddress:pAddress.value,
+                         requestedTime: new Date().toLocaleString(),
+                        
+                                  }
+                          //console.log(user);
+                          fetch('/user',{
+                                              method:"PATCH",
+                                             body: JSON.stringify(user),
+                                              }).then(res=> res.json()).then(res=> tableBody(res)).catch(err=>{
+                                                 console.log(err);
+                                                   });
+
+                model.classList.remove('displayModel');
+                model.classList.add('noModel');           
+})
+         </script>
+
+
+</body>
+</html>

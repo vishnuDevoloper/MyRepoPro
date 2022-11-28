@@ -1,0 +1,212 @@
+[
+    {
+        "flatNo." : "E-140",
+        "ownerName" : "Shiva",
+        "no.OfPersons" : "4",
+        "budget" : {
+            "income" : "25000",
+            "expenditure" : "20000",
+            "Savings" : "5000"
+        }
+    },
+    {
+        "flatNo." : "E-141",
+        "ownerName" : "Vishnu",
+        "no.OfPersons" : "4",
+        "budget" : {
+            "income" : "45000",
+            "expenditure" : "22000",
+            "savings" : "23000"
+        }
+    },
+    {
+        "flatNo." : "E-142",
+        "ownerName" : "Virinchi",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "30000",
+            "expenditure" : "19000",
+            "savings" : "11000"
+        }
+    },
+    {
+        "flatNo." : "E-143",
+        "ownerName" : "Dutt",
+        "no.OfPersons" : "2",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "28000",
+            "savings" : "22000"
+        }
+    },
+    {
+        "flatNo." : "E-144",
+        "ownerName" : "Subramanya",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "40000",
+            "expenditure" : "20000",
+            "savings" : "20000"
+        }
+    },
+    {
+        "flatNo." : "E-145",
+        "ownerName" : "Vigneshwar",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "26000",
+            "savings" : "24000"
+        }
+    },
+    {
+        "flatNo." : "E-146",
+        "ownerName" : "Aswatthama",
+        "no.OfPersons" : "1",
+        "budget" : {
+            "income" : "45000",
+            "expenditure" : "24000",
+            "savings" : "21000"
+        }
+    },
+    {
+        "flatNo." : "E-147",
+        "ownerName" : "Bali",
+        "no.OfPersons" : "2",
+        "budget" : {
+            "income" : "60000",
+            "expenditure" : "28000",
+            "savings" : "32000"
+        }
+    },
+    {
+        "flatNo." : "E-148",
+        "ownerName" : "Vyasa",
+        "no.OfPersons" : "1",
+        "budget" : {
+            "income" : "40000",
+            "expenditure" : "17000",
+            "savings" : "23000"
+        }
+    },
+    {
+        "flatNo." : "E-149",
+        "ownerName" : "Maruthi",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "26000",
+            "savings" : "24000"
+        }
+    },
+    {
+        "flatNo." : "E-150",
+        "ownerName" : "Vibhishana",
+        "no.OfPersons" : "4",
+        "budget" : {
+            "income" : "48000",
+            "expenditure" : "26000",
+            "savings" : "22000"
+        }
+    },
+    {
+        "flatNo." : "E-151",
+        "ownerName" : "Krupacharya",
+        "no.OfPersons" : "2",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "19000",
+            "savings" : "31000"
+        }
+    },
+    {
+        "flatNo." : "E-152",
+        "ownerName" : "Parasuram",
+        "no.OfPersons" : "1",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "13000",
+            "savings" : "37000"
+        }
+    },
+    {
+        "flatNo." : "E-153",
+        "ownerName" : "Gautama",
+        "no.OfPersons" : "2",
+        "budget" : {
+            "income" : "60000",
+            "expenditure" : "33000",
+            "savings" : "23000"
+        }
+    },
+    {
+        "flatNo." : "E-154",
+        "ownerName" : "Dharmarja",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "28000",
+            "savings" : "22000"
+        }
+    },
+    {
+        "flatNo." : "E-155",
+        "ownerName" : "Rama",
+        "no.OfPersons" : "4",
+        "budget" : {
+            "income" : "60000",
+            "expenditure" : "30000",
+            "savings" : "30000"
+        }
+    },
+    {
+        "flatNo." : "E-156",
+        "ownerName" : "Vaali",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "25000",
+            "expenditure" : "23000",
+            "savings" : "2000"
+        }
+    },
+    {
+        "flatNo." : "E-157",
+        "ownerName" : "Dhasagreeva",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "30000",
+            "expenditure" : "29000",
+            "savings" : "1000"
+        }
+    },
+    {
+        "flatNo." : "E-158",
+        "ownerName" : "Tukaram",
+        "no.OfPersons" : "2",
+        "budget" : {
+            "income" : "35000",
+            "expenditure" : "17000",
+            "savings" : "18000"
+        }
+    },
+    {
+        "flatNo." : "E-159",
+        "ownerName" : "Bheeshma",
+        "no.OfPersons" : "1",
+        "budget" : {
+            "income" : "40000",
+            "expenditure" : "13000",
+            "savings" : "27000"
+        }
+    },
+    {
+        "flatNo." : "E-160",
+        "ownerName" : "Dronacharya",
+        "no.OfPersons" : "3",
+        "budget" : {
+            "income" : "50000",
+            "expenditure" : "25000",
+            "savings" : "25000"
+        }
+    }
+]

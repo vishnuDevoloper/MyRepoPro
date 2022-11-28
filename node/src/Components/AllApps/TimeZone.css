@@ -1,0 +1,32 @@
+.main-container{
+    display: grid;
+    place-items: center;
+    grid-template-columns: auto;
+    grid-gap: 10px;
+    border: none;
+    border-radius: 15px;
+    width: 30%;
+    margin: 50px auto;
+    background: linear-gradient(90deg, blue,black);
+}
+.main-container .title{
+    padding: 10px;
+    color: white;
+}
+.zones{
+    padding: 10px;
+}
+.zones select{
+    padding: 10px;
+    /* font-size: 30px; */
+    font-weight: bold;
+    background: linear-gradient(90deg, blue,black);
+    color: yellow;
+    border: none;
+    border-radius: 10px;
+}
+.time{
+    padding: 10px;
+    /* font-size: 30px; */
+    font-weight: bold;
+}

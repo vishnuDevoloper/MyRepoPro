@@ -1,0 +1,20 @@
+[
+    {
+        "name":"Broderic",
+        "gender":"M",
+        "city":"Farranacoush"
+    },
+    {
+        "name":"Clemmie",
+        "gender":"F",
+        "city":"Bibis"
+    },
+    {"name":"Milt","gender":"F","city":"Az Zubaydāt"},
+    {"name":"Abran","gender":"F","city":"Cláudio"},
+    {"name":"Barron","gender":"F","city":"Richmond"},
+    {"name":"Pembroke","gender":"F","city":"Slovenske Konjice"},
+    {"name":"Kristos","gender":"M","city":"Tršić"},
+    {"name":"Vernor","gender":"M","city":"Ibabang Tayuman"},
+    {"name":"Domingo","gender":"M","city":"San Manuel"},
+    {"name":"Graig","gender":"F","city":"Bunut"}
+]

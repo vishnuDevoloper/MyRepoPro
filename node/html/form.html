@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        body{
+             background-image: linear-gradient(90deg, rgb(200, 200, 226), rgb(212, 125, 125), rgb(168, 202, 168));
+        }
+        label{
+            color:aqua;
+            display: flex;
+            flex-wrap: wrap;
+        }
+        
+    </style>
+</head>
+<body>
+
+    <header class="py-3 ps-5 bg-dark text-center">
+        <h1 class="text-light h2">Vaccine Booking Slot</h1>
+   
+        <a href="./admin.html" class="text-decoration-none fs-3 border border-primary p-1 w-70">Admin</a>
+    </header> 
+    <form class="form-group" id="userForm" >
+        <div class="container col-3 p-3 border border-2 my-5 rounded" >
+            <div class="text-center h4 text-secondary">Users Form</div>
+            <div class="my-2">
+                <label for="firstName">FirstName</label>
+                <input type="text" id="firstName" name="firstName" class="form-control">
+                <p class="text-danger" id="firstNameError"></p>
+            </div>
+            <div class="my-2">
+                <label for="lastName">LastName</label>
+                <input type="text" id="lastName" name="lastName" class="form-control">
+                <p class="text-danger" id="lastNameError"></p>
+            </div>
+            <div class="my-2">
+                <label for="eMail">Email</label>
+                <input type="text" id="eMail" name="eMail" class="form-control">
+                <p class="text-danger" id="eMailError"></p>
+            </div>
+            <div class="my-2">
+                <label for="date">Date</label>
+                <input type="date" id="date" name="date" class="form-control">
+              
+            </div> 
+            <div class="my-2  d-flex " >
+                 <div>
+                    <label for="age">Age</label> 
+                    <input type="number"  name="age" class="form-control">
+                 </div>
+                  <div class="ms-3">
+                    <label for="phoneNo">PhoneNo</label>
+                    <input type="tel" id="phoneNo" name="phoneNo" class="form-control">
+                    <p class="text-danger" id="phoneError"></p>
+                  </div>
+            </div>
+           
+            <div class="my-2">
+                <label for="aadhar">Enter Aadhar</label>
+                <input type="tel" name="aadhar" class="form-control">
+                <p class="text-danger" id="aadharError"></p>
+                
+            </div>
+            <div class="my-2">
+                <label for="pAddress">Parament Address</label>
+                <textarea id="pAddress" name="pAddress" class="form-control"></textarea>
+            </div>
+            <button type="submit" class="btn btn-outline-dark w-10">Submit</button>
+        </div>
+    </form>
+
+    <script>
+       document.getElementById('userForm').addEventListener('submit',(event)=>{
+        event.preventDefault()
+        const {target}=event;
+        const {firstName,lastName,eMail,date,age,phoneNo,aadhar,pAddress}=target;
+
+        let user={
+            firstName:firstName.value,
+            lastName:lastName.value,
+            eMail:eMail.value,
+            date:date.value,
+            age:Number(age.value),
+            phoneNo:Number(phoneNo.value),
+            aadhar:Number(aadhar.value),
+            pAddress:pAddress.value
+        }
+        // console.log(user)
+        fetch('/user',{
+            method:"POST",
+            body:JSON.stringify(user)
+        }).then(res =>res.text())
+        .then(data=> {
+            alert(data)
+            // console.log(data)
+        }
+            )
+        .catch(err => console.log(err))
+
+         
+          
+       },false)
+    </script>
+   
+    
+ 
+</body>
+</html>

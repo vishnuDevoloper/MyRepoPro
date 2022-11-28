@@ -1,0 +1,20 @@
+*{
+    padding: 0px;
+    margin:0px;
+}
+
+.tejas{
+    height:50px;
+    width:100%;
+    background-color: rgb(144, 134, 123);
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: end;
+}
+.tejas a{
+    color:brown;
+    margin-top: 20px;
+    margin-left: 20px;
+    text-decoration: none;
+    
+}

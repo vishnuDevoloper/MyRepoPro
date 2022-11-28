@@ -1,0 +1,86 @@
+<html>
+    <head>
+        <title>Slot Booking</title>
+        <link rel="stylesheet" href="../css/covid.css">
+    </head>
+    <body>
+        <div class="header"><h1>Vaccine Slot Booking</h1></div>
+        <div>
+            <form id="form">
+                <div class="content">
+                    <div class="row">
+                        <div class="column">
+                            <div><h4>Name</h4></div>
+                            <div><input type="text" class="input" id="name" name="name" placeholder="Enter Name"></div>
+                            <div></div>
+                        </div>
+                        <div class="column">
+                            <div><h4>Aadhaar No.</h4></div>
+                            <div><input type="text" class="input" placeholder="XXXX - XXXX - XXXX" name="aadhaar"></div>
+                            <div></div>
+                        </div>  
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <div><h4>Email Address</h4></div>
+                            <div><input type="text" class="input" placeholder="example@gmail.com" name="gmail"></div>
+                            <div></div>
+                        </div>
+                        <div class="column">
+                            <div><h4>Phone No.</h4></div>
+                            <div><input type="text" class="input" placeholder="+91 XXXXX - XXXXX" name="phone"></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <div><h4>Age</h4></div>
+                            <div><input type="text" class="input" placeholder="XX" name="age"></div>
+                            <div></div>
+                        </div>
+                        <div class="column">
+                            <div><h4>Date</h4></div>
+                            <div><input type="date" class="input" name="date"></div>
+                            <div></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="column">
+                            <div><h4>Gender</h4></div>
+                            <div>
+                                <select name="gender">
+                                    <option>Select</option>
+                                    <option>Male</option>
+                                    <option>Female</option>
+                                    <option>Other</option>
+                                </select>
+                            </div>
+                            <div></div>
+                        </div>
+                        <div class="column">
+                            <div><h4>Time</h4></div>
+                            <div>
+                                <select name="time">
+                                    <option>Select</option>
+                                    <option value="slot - 1">9 : 00 A.M</option>
+                                    <option value="slot - 2">12 : 00 P.M</option>
+                                    <option value="slot - 3">6 : 00 P.M</option>
+                                    <option value="slot - 4">9 : 00 P.M</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div><br>
+                    <div class="row">
+                        <textarea name="address" id="" cols="30" rows="5" placeholder="Address"></textarea>
+                    </div>
+                    <div class="row">
+                        <button class="btn" type="submit">Book Slot</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <script>
+            
+        </script>
+    </body>
+</html>

@@ -1,0 +1,211 @@
+<html>
+    <head>
+        <title>Admin</title>
+        <style>
+            body{
+                background: linear-gradient(90deg,lightyellow,gold);
+            }
+            table{
+                border: 2px solid black;
+                margin: 50px auto;
+                padding: 20px;
+                font-size: 30px;
+                font-size: 20px;
+                align-items: center;
+            }
+            th,td{
+                text-align: center;
+                padding: 15px;
+            }
+            header{
+                background-color: black;
+                color: white;
+            }
+            button{
+                padding: 10px;
+                width: 100px;
+                background-color: royalblue;
+                color: white;
+                border-radius: 10px;
+                font-size: 20px;
+                font-family: sans-serif;
+                margin: 5px;
+            }
+            button:hover{
+                cursor: pointer;
+            }
+            .modal{
+                border: 2px solid black;
+                width: 35%;
+                font-family: sans-serif;
+            }
+            .row{
+                display: grid;
+                justify-content: space-between;
+                grid-template-columns: 200px auto;
+                text-align: center;
+                margin: 10px;
+            }
+            input{
+                padding: 10px;
+                /* width: 220px; */
+                text-align: center;
+                font-size: 20px;
+                font-family: sans-serif;
+                border-radius: 10px;
+                border: none;
+                outline: none;
+            }
+            header{
+                display: flex;
+                justify-content: space-between;
+                font-size: 20px;
+            }
+            select{
+                padding: 10px;
+                width: 220px;
+                text-align: center;
+                font-size: 25px;
+                font-family: sans-serif;
+                border-radius: 10px;
+                outline: none;
+            }
+            textarea{
+                width: 220px;
+                font-size: 25px;
+                font-family: sans-serif;
+                border-radius: 10px;
+                outline: none;
+            }
+            .cross{
+                margin-top: 18px;
+                font-size: 20px;
+                cursor: pointer;
+            }
+            .hide{
+                display: none;
+            }
+        </style>
+    </head>
+    <body>
+        <table>
+            <a href="/"><button>User</button></a>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>Gmail</th>
+                    <th>Phone</th>
+                    <th>Aadhaar</th>
+                    <th>Gender</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody id="tbody">
+
+            </tbody>
+
+            <div class="modal hide">
+            <header>
+                <div><h3>Edit User Details</h3></div>
+                <div class="cross">&#10006;</div>
+            </header>
+                <div class="column">
+                    <div class="row">
+                        <h4>Name</h4>
+                        <input type="text" name="name" class="name">
+                    </div>
+                    <div class="row">
+                        <h4>Age</h4>
+                        <input type="text" name="age" class="age">
+                    </div>
+                    <div class="row">
+                        <h4>Gmail</h4>
+                        <input type="text" name="gmail" class="gmail">
+                    </div>
+                    <div class="row">
+                        <h4>Phone</h4>
+                        <input type="text" name="phone" class="phone">
+                    </div>
+                    <div class="row">
+                        <h4>Aadhaar</h4>
+                        <input type="text" name="aadhaar" class="aadhaar" readonly>
+                    </div>
+                    <div class="row">
+                        <h4>Gender</h4>
+                        <input type="text" name="gender" class="gender">
+                    </div>
+                    <div class="row">
+                        <h4>Date</h4>
+                        <input type="date" name="date" class="date">
+                    </div>
+                    <div class="row">
+                        <h4>Time</h4>
+                        <select name="time">
+                            <option>Select Time</option>
+                            <option>9.00 A.M</option>
+                            <option>12.00 P.M</option>
+                            <option>3.00 P.M</option>
+                            <option>6.00 P.M</option>
+                        </select>
+                    </div>
+                    <div class="row">
+                        <h4>Address</h4>
+                        <textarea name="address" id="" cols="30" rows="5"></textarea>
+                    </div>
+                    <div class="row">
+                        <button>Save</button>
+                        <button>Cancel</button>
+                    </div>
+                </div>
+            </div>
+
+
+            <script>
+                const deleteUser = async (id)=>{
+                    let res = await fetch(`/user/${id}`,{method:"DELETE"})
+                    let result = await res.json();
+                    alert(result.msg);
+                    tableBody(result.allData)
+                }
+                let modal = document.querySelector('.modal')
+                document.querySelector('.cross').addEventListener('click',()=>{
+                    modal.classList.add('hide')
+                })
+                
+                const editUser = ()=>{
+                    modal.classList.remove('hide');
+                    
+                }
+                const tableBody = (data)=>{
+                    console.log(data);
+                    let allRows = '';
+                        for(let i = 0;i < data.length;i++){
+                            allRows += 
+                            `<tr>
+                                <td>${data[i].name}</td>
+                                <td>${data[i].age}</td>
+                                <td>${data[i].gmail}</td>
+                                <td>${data[i].phone}</td>
+                                <td>${data[i].aadhaar}</td>
+                                <td>${data[i].gender}</td>
+                                <td>${data[i].date}</td>
+                                <td>${data[i].time}</td>
+                                <td>${data[i].address}</td>
+                                <td><button onClick="editUser()">Edit</button></td>
+                                <td><button onClick="deleteUser(${data[i].id})">Delete</button></td>
+                            </tr>`
+                        }
+                    document.getElementById('tbody').innerHTML = allRows;
+                }
+                (async function (){
+                    let final = await fetch ("../db/user.json")
+                    const finalResult = await final.json();
+                    tableBody(finalResult);
+                })();
+            </script>
+        </table>
+    </body>
+</html>
